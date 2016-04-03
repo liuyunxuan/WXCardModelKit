@@ -7,7 +7,9 @@
 //
 
 #import "NSObject+WXCardKeyValue.h"
-
+#import "NSObject+WXCardProperty.h"
+#import "WXCardDictionaryCache.h"
+#import "WXCardPropertyKey.h"
 @implementation NSObject (WXCardKeyValue)
 
 + (instancetype)wx_objectWithKeyValues:(NSDictionary *)keyValues
@@ -20,7 +22,21 @@
 {
     Class class = [self class];
     
+    [class wx_enumerateProperties:^(WXCardProperty *property, BOOL *stop) {
+        id value;
+        NSArray *propertyKeyses = [property propertyKeysForClass:class];
+        for (NSArray *propertyKeys in propertyKeyses)
+        {
+            value = keyValues;
+            for (WXCardPropertyKey *propertyKey in propertyKeys)
+            {
+                value = [propertyKey valueInObject:value];
+            }
+            if (value) break;
+        }
+    }];
     
     return self;
 }
+
 @end
