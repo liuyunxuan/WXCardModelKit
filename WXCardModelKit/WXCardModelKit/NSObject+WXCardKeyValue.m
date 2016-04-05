@@ -18,6 +18,7 @@
     return [[[self alloc] init]wx_setKeyValues:keyValues];
 }
 
+/// 进行赋值
 - (instancetype)wx_setKeyValues:(NSDictionary *)keyValues
 {
     Class class = [self class];

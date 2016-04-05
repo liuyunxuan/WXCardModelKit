@@ -7,9 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WXCardPropertyType.h"
+#import <objc/runtime.h>
 
 @interface WXCardProperty : NSObject
 
-/** 对应着字典中的多级key（里面存放的数组，数组里面都是MJPropertyKey对象） */
+/** 成员属性 */
+@property (nonatomic, assign) objc_property_t property;
+/** 成员属性的名字 */
+@property (nonatomic, readonly) NSString *name;
+
+/** 成员属性的类型 */
+@property (nonatomic, readonly)  WXCardPropertyType *type;
+/** 成员属性来源于哪个类（可能是父类） */
+@property (nonatomic, assign) Class srcClass;
+
+/** 对应着字典中的多级key（里面存放的数组，数组里面都是WXCardPropertyKey对象） */
 - (NSArray *)propertyKeysForClass:(Class)c;
+
+/**
+ *  初始化
+ */
++ (instancetype)cachedPropertyWithProperty:(objc_property_t)property;
+
+- (void)setOriginKey:(id)originKey forClass:(Class)c;
 @end

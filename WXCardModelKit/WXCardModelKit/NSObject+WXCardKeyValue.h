@@ -16,7 +16,7 @@
  *
  *  @return 字典中的key是属性名，value是从字典中取值用的key
  */
-+ (NSDictionary *)mj_replacedKeyFromPropertyName;
++ (NSDictionary *)wx_replacedKeyFromPropertyName;
 
 @end
 

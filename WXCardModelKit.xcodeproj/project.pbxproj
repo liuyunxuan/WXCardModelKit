@@ -29,6 +29,10 @@
 		C937A34E1CB16D1300B787AD /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C937A3411CB16D1300B787AD /* NSObject+MJKeyValue.m */; };
 		C937A34F1CB16D1300B787AD /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C937A3431CB16D1300B787AD /* NSObject+MJProperty.m */; };
 		C937A3501CB16D1300B787AD /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C937A3451CB16D1300B787AD /* NSString+MJExtension.m */; };
+		C937A3561CB23CE700B787AD /* NSObject+WXCardClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C937A3551CB23CE700B787AD /* NSObject+WXCardClass.m */; };
+		C937A3591CB2400100B787AD /* WXCardPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = C937A3581CB2400100B787AD /* WXCardPropertyType.m */; };
+		C937A35C1CB24F2400B787AD /* WXCardModelConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C937A35B1CB24F2400B787AD /* WXCardModelConst.m */; };
+		C937A35F1CB2607000B787AD /* WXCardFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = C937A35E1CB2607000B787AD /* WXCardFoundation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +80,14 @@
 		C937A3431CB16D1300B787AD /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		C937A3441CB16D1300B787AD /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		C937A3451CB16D1300B787AD /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		C937A3541CB23CE700B787AD /* NSObject+WXCardClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WXCardClass.h"; sourceTree = "<group>"; };
+		C937A3551CB23CE700B787AD /* NSObject+WXCardClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WXCardClass.m"; sourceTree = "<group>"; };
+		C937A3571CB2400100B787AD /* WXCardPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCardPropertyType.h; sourceTree = "<group>"; };
+		C937A3581CB2400100B787AD /* WXCardPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCardPropertyType.m; sourceTree = "<group>"; };
+		C937A35A1CB24F2400B787AD /* WXCardModelConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCardModelConst.h; sourceTree = "<group>"; };
+		C937A35B1CB24F2400B787AD /* WXCardModelConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCardModelConst.m; sourceTree = "<group>"; };
+		C937A35D1CB2607000B787AD /* WXCardFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCardFoundation.h; sourceTree = "<group>"; };
+		C937A35E1CB2607000B787AD /* WXCardFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCardFoundation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,16 +147,24 @@
 			isa = PBXGroup;
 			children = (
 				C937A3211CB113AA00B787AD /* WXCardModelKit.h */,
+				C937A35A1CB24F2400B787AD /* WXCardModelConst.h */,
+				C937A35B1CB24F2400B787AD /* WXCardModelConst.m */,
+				C937A35D1CB2607000B787AD /* WXCardFoundation.h */,
+				C937A35E1CB2607000B787AD /* WXCardFoundation.m */,
 				C937A31E1CB10FF100B787AD /* WXCardDictionaryCache.h */,
 				C937A31F1CB10FF100B787AD /* WXCardDictionaryCache.m */,
 				C937A3251CB119C300B787AD /* WXCardProperty.h */,
 				C937A3261CB119C300B787AD /* WXCardProperty.m */,
 				C937A32B1CB122B600B787AD /* WXCardPropertyKey.h */,
 				C937A32C1CB122B600B787AD /* WXCardPropertyKey.m */,
+				C937A3571CB2400100B787AD /* WXCardPropertyType.h */,
+				C937A3581CB2400100B787AD /* WXCardPropertyType.m */,
 				C937A3281CB11A2300B787AD /* NSObject+WXCardProperty.h */,
 				C937A3291CB11A2300B787AD /* NSObject+WXCardProperty.m */,
 				C937A3221CB1145E00B787AD /* NSObject+WXCardKeyValue.h */,
 				C937A3231CB1145E00B787AD /* NSObject+WXCardKeyValue.m */,
+				C937A3541CB23CE700B787AD /* NSObject+WXCardClass.h */,
+				C937A3551CB23CE700B787AD /* NSObject+WXCardClass.m */,
 			);
 			path = WXCardModelKit;
 			sourceTree = "<group>";
@@ -260,10 +280,14 @@
 				C937A34B1CB16D1300B787AD /* MJPropertyType.m in Sources */,
 				C937A34E1CB16D1300B787AD /* NSObject+MJKeyValue.m in Sources */,
 				C937A3241CB1145E00B787AD /* NSObject+WXCardKeyValue.m in Sources */,
+				C937A3591CB2400100B787AD /* WXCardPropertyType.m in Sources */,
 				C937A32D1CB122B600B787AD /* WXCardPropertyKey.m in Sources */,
 				C937A3491CB16D1300B787AD /* MJProperty.m in Sources */,
+				C937A35F1CB2607000B787AD /* WXCardFoundation.m in Sources */,
+				C937A35C1CB24F2400B787AD /* WXCardModelConst.m in Sources */,
 				C937A3471CB16D1300B787AD /* MJExtensionConst.m in Sources */,
 				C937A3081CB10B8400B787AD /* main.m in Sources */,
+				C937A3561CB23CE700B787AD /* NSObject+WXCardClass.m in Sources */,
 				C937A34D1CB16D1300B787AD /* NSObject+MJCoding.m in Sources */,
 				C937A3271CB119C300B787AD /* WXCardProperty.m in Sources */,
 				C937A34A1CB16D1300B787AD /* MJPropertyKey.m in Sources */,

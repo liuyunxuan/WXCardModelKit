@@ -124,6 +124,7 @@ static const char MJCachedPropertiesKey = '\0';
 #pragma mark - 公共方法
 + (NSMutableArray *)properties
 {
+    // dictId 指的是哪个字典
     NSMutableArray *cachedProperties = [MJDictionaryCache objectForKey:NSStringFromClass(self) forDictId:&MJCachedPropertiesKey];
     
     if (cachedProperties == nil) {
@@ -145,8 +146,11 @@ static const char MJCachedPropertiesKey = '\0';
                     continue;
                 }
                 property.srcClass = c;
+                // 设置最原始的key 会将ID转成id然后从字典里面取值
                 [property setOriginKey:[self propertyKey:property.name] forClass:self];
+                // 设置key对应的数组，因为key对应的是数组类型，那么就可以通过这样去取到数组里面类的类型，然后存储起来
                 [property setObjectClassInArray:[self propertyObjectClassInArray:property.name] forClass:self];
+                // 将属性对象缓存起来
                 [cachedProperties addObject:property];
             }
             
