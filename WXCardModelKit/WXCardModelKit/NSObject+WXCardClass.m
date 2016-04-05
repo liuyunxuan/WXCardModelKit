@@ -7,9 +7,11 @@
 //
 
 #import "NSObject+WXCardClass.h"
+#import "WXCardFoundation.h"
 #import <objc/runtime.h>
 
 @implementation NSObject (WXCardClass)
+
 + (void)wx_enumerateAllClasses:(WXCardClassesEnumeration)enumeration
 {
     // 1.没有block就直接返回
@@ -28,6 +30,8 @@
         
         // 4.2.获得父类
         c = class_getSuperclass(c);
+        
+        if([WXCardFoundation isClassFromFoundation:c]) break;
     }
 }
 

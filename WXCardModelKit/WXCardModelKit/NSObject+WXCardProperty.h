@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WXCardProperty.h"
+#import "WXCardPropertyKey.h"
 
 typedef void(^WXCardPropertiesEnumeration)(WXCardProperty *property, BOOL *stop);
 
@@ -15,6 +16,4 @@ typedef void(^WXCardPropertiesEnumeration)(WXCardProperty *property, BOOL *stop)
 
 + (void)wx_enumerateProperties:(WXCardPropertiesEnumeration)enumeration;
 
-/** 对应着字典中的多级key（里面存放的数组，数组里面都是MJPropertyKey对象） */
-- (NSArray<WXCardProperty *> *)propertyKeysForClass:(Class)c;
 @end

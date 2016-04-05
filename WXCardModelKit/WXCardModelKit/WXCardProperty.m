@@ -17,7 +17,7 @@
 
 - (NSArray *)propertyKeysForClass:(Class)c
 {
-    return nil;
+    return self.propertyKeysDict[NSStringFromClass(c)];
 }
 
 + (instancetype)cachedPropertyWithProperty:(objc_property_t)property
@@ -51,26 +51,15 @@
 }
 
 /** 对应着字典中的key */
-- (void)setOriginKey:(id)originKey forClass:(Class)c
+- (void)setOriginKey:(NSString *)originKey forClass:(Class)c
 {
-    if ([originKey isKindOfClass:[NSString class]]) { // 字符串类型的key
-        NSArray *propertyKeys = [self propertyKeysWithStringKey:originKey];
-        if (propertyKeys.count) {
-            [self setPorpertyKeys:@[propertyKeys] forClass:c];
-        }
-    } else if ([originKey isKindOfClass:[NSArray class]]) {
-        NSMutableArray *keyses = [NSMutableArray array];
-        for (NSString *stringKey in originKey) {
-            NSArray *propertyKeys = [self propertyKeysWithStringKey:stringKey];
-            if (propertyKeys.count) {
-                [keyses addObject:propertyKeys];
-            }
-        }
-        if (keyses.count) {
-            [self setPorpertyKeys:keyses forClass:c];
-        }
+    NSArray *propertyKeys = [self propertyKeysWithStringKey:originKey];
+    if (propertyKeys.count)
+    {
+        [self setPorpertyKeys:propertyKeys forClass:c];
     }
 }
+
 
 /** 对应着字典中的多级key */
 - (void)setPorpertyKeys:(NSArray *)propertyKeys forClass:(Class)c
@@ -123,4 +112,38 @@
 }
 
 
+/** 模型数组中的模型类型 */
+- (void)setObjectClassInArray:(Class)objectClass forClass:(Class)c
+{
+    if (!objectClass) return;
+    self.objectClassInArrayDict[NSStringFromClass(c)] = objectClass;
+}
+
+- (Class)objectClassInArrayForClass:(Class)c
+{
+    return self.objectClassInArrayDict[NSStringFromClass(c)];
+}
+
+- (void)setValue:(id)value forObject:(id)object
+{
+    if (self.type.KVCDisabled || value == nil) return;
+    [object setValue:value forKey:self.name];
+}
+
+- (NSMutableDictionary *)propertyKeysDict
+{
+    if (!_propertyKeysDict) {
+        _propertyKeysDict = [NSMutableDictionary dictionary];
+    }
+    return _propertyKeysDict;
+}
+
+- (NSMutableDictionary *)objectClassInArrayDict
+{
+    if (!_objectClassInArrayDict)
+    {
+        _objectClassInArrayDict = [NSMutableDictionary dictionary];
+    }
+    return _objectClassInArrayDict;
+}
 @end

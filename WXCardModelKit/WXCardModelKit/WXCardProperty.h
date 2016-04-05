@@ -30,5 +30,15 @@
  */
 + (instancetype)cachedPropertyWithProperty:(objc_property_t)property;
 
-- (void)setOriginKey:(id)originKey forClass:(Class)c;
+- (void)setOriginKey:(NSString *)originKey forClass:(Class)c;
+
+/** 模型数组中的模型类型 */
+- (void)setObjectClassInArray:(Class)objectClass forClass:(Class)c;
+- (Class)objectClassInArrayForClass:(Class)c;
+
+/**
+ * 设置object的成员变量值
+ */
+- (void)setValue:(id)value forObject:(id)object;
+
 @end
